@@ -19,7 +19,7 @@ async def main():
                rotation="3 days",
                backtrace=True,
                diagnose=True)
-    
+
     bot = Bot(token=TOKEN)
     logger.info("Создан бот")
     dp = Dispatcher()
@@ -28,7 +28,7 @@ async def main():
     async def send_random_joke():
         while True:
             try:
-                response = requests.get("https://www.anekdot.ru/random/anekdot/")
+                response = requests.get('https://www.anekdot.ru/random/anekdot/')
                 if response.status_code == 200:
                     soup = BeautifulSoup(response.text, 'html.parser')
                     jokes = soup.find_all('div', class_='text')
